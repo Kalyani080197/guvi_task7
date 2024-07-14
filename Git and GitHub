@@ -1,0 +1,63 @@
+Task: Complete the below Task using Git & GitHub
+Create a new repository in GitHub
+
+Go to your GitHub account.
+Click on the "New" button to create a new repository.
+Name your repository and set the visibility (public or private).
+Click on "Create repository".
+Use the init command to create a Git repository in that directory
+git init
+Observe that there is now a .git directory
+
+After running git init, a .git directory is created in your project folder. This directory contains all the metadata for your Git repository.
+Create a README file
+echo "# My Project" > README.md
+Look at the output of the status command
+git status
+You should see the README.md file listed as an untracked file.
+Use the add command to add the new file to the staging area
+it add README.md
+Check the status again:
+git status
+Use the commit command to commit the contents of the staging area
+git commit -m "Add README file"
+Create a src directory and add a couple of files to it
+mkdir src
+echo "public class Main {}" > src/Main.java
+echo "public class Helper {}" > src/Helper.java
+Use the add command, but name the directory, not the individual files
+git add src/
+Check the status to see both files staged:
+git status
+Commit them
+git commit -m "Add src directory with Main and Helper classes"
+Make a change to one of the files
+echo "// Main class implementation" >> src/Main.java
+Use the diff command to view the details of the change
+git diff src/Main.java
+Add the changed file and notice its status
+git add src/Main.java
+git status
+Observe that the diff command now gives no output after using add
+git diff src/Main.java
+Without committing, make another change to the same file
+echo "// Updated implementation" >> src/Main.java
+Look at the status output, and the diff output
+git status
+git diff src/Main.java
+Observe the difference when you use the add command to stage the latest round of changes
+git add src/Main.java
+git commit -m "Update Main class implementation"
+Use the log command to see all of the commits you made so far
+git log
+Use the show command to look at an individual commit
+git show <commit-id>
+You can type just the first few characters of the commit ID as long as it uniquely identifies the commit.
+Make a couple more commits, at least one of which should add an extra file
+echo "public class NewClass {}" > src/NewClass.java
+git add src/NewClass.java
+git commit -m "Add NewClass"
+
+echo "// Helper class implementation" >> src/Helper.java
+git add src/Helper.java
+git commit -m "Update Helper class implementation"
